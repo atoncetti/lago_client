@@ -271,13 +271,13 @@ defmodule LagoApiClient.Operation do
   defp put_user_agent(operation) do
     user_agent =
       IO.iodata_to_binary([
-        Config.app_name() || "Unknown App",
+        "#{Config.app_name()}" || "Unknown App",
         " via lago_api_client ",
-        Application.spec(:lago_api_client, :vsn),
+        "#{Application.spec(:lago_api_client, :vsn)}",
         "; Elixir ",
-        System.version(),
+        "#{System.version()}",
         " / OTP ",
-        System.otp_release()
+        "#{System.otp_release()}"
       ])
 
     put_request_header(operation, "User-Agent", user_agent)

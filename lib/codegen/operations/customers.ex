@@ -276,10 +276,10 @@ defmodule LagoApiClient.Customers do
   @doc false
   @spec __fields__(atom) :: keyword
   def __fields__(:generate_customer_checkout_url_200_json_resp) do
-    [customer: {LagoApiClient.CustomersCustomer, :generate_customer_checkout_url_200_json_resp}]
+    [customer: {LagoApiClient.CustomerUrl, :t}]
   end
 
   def __fields__(:get_customer_portal_url_200_json_resp) do
-    [customer: {LagoApiClient.CustomersCustomer, :get_customer_portal_url_200_json_resp}]
+    [customer: {LagoApiClient.CustomerUrl, :t}]
   end
 end
