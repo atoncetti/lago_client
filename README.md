@@ -1,6 +1,6 @@
 # LagoClient
 
-Elixir client library to communicate with a Lago server [Lago](https://www.getlago.com/).
+Elixir client library to communicate with a [Lago](https://www.getlago.com/) server.
 
 - [Lago API Documentation](https://docs.getlago.com/welcome)
 
