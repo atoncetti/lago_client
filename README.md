@@ -11,7 +11,7 @@ The package can be installed by adding `lago_client` to your list of dependencie
 ```elixir
 def deps do
   [
-      {:lago_client, git: "https://github.com/atoncetti/lago_client.git"}
+      {:lago_client, git: "https://github.com/atoncetti/lago_client.git", branch: "main"}
   ]
 end
 ```
