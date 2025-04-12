@@ -18,5 +18,5 @@ end
 
 ## Regenerate
 
-- Copy all content of yaml from https://swagger.getlago.com/openapi.yaml to `priv/openapi.yaml`
+- Copy content of yaml from https://swagger.getlago.com/openapi.yaml to `priv/openapi.yaml`
 - run `mix api.gen default priv/openapi.yaml`
