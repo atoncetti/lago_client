@@ -20,3 +20,38 @@ end
 
 - Copy content of yaml from https://swagger.getlago.com/openapi.yaml to `priv/openapi.yaml`
 - run `mix api.gen default priv/openapi.yaml`
+
+## Use Example
+
+Add to `config/runtime.exs`:
+
+```elixir
+config :lago_client,
+  app_name: :your-app-name,
+  auth:
+    System.get_env(
+      "LAGO_API_KEY",
+      "your-api-key"
+    ),
+  server:
+    System.get_env(
+      "LAGO_API_URL",
+      "http://localhost:3000/api/v1" # or url to your lago instance
+    )
+```
+
+To use the library:
+
+```elixir
+alias LagoClient.Subscriptions
+alias LagoClient.SubscriptionCreateInput
+alias LagoClient.SubscriptionCreateInputSubscription
+
+{:ok, subscription} = Subscriptions.create_subscription(%SubscriptionCreateInput{
+  subscription: %SubscriptionCreateInputSubscription{
+    external_id: "asdf1234",
+    external_customer_id: "customer.12345",
+    plan_code: "free"
+  }
+})
+```
