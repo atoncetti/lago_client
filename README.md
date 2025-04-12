@@ -1,16 +1,17 @@
 # LagoClient
 
-**TODO: Add description**
+Elixir client library to communicate with a Lago server [Lago](https://www.getlago.com/).
+
+- [Lago API Documentation](https://docs.getlago.com/welcome)
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `lago_client` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `lago_client` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:lago_client, "~> 0.1.0"}
+      {:lago_client, git: "https://github.com/atoncetti/lago_client.git"}
   ]
 end
 ```
