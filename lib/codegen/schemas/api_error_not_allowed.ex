@@ -1,8 +1,8 @@
-defmodule LagoApiClient.ApiErrorNotAllowed do
+defmodule LagoClient.ApiErrorNotAllowed do
   @moduledoc """
   Provides struct and type for a ApiErrorNotAllowed
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, code: String.t(), error: String.t(), status: integer}
 

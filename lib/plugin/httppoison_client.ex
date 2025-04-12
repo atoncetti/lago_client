@@ -1,7 +1,7 @@
 if Code.ensure_loaded?(HTTPoison) do
-  defmodule LagoApiClient.Plugin.HTTPoisonClient do
-    alias LagoApiClient.Error
-    alias LagoApiClient.Operation
+  defmodule LagoClient.Plugin.HTTPoisonClient do
+    alias LagoClient.Error
+    alias LagoClient.Operation
 
     @http_code_success 200..206
     @http_code_redirect [301, 302, 303, 307, 308]

@@ -1,32 +1,32 @@
-defmodule LagoApiClient.Organizations do
+defmodule LagoClient.Organizations do
   @moduledoc """
   Provides API endpoint related to organizations
   """
 
-  @default_client LagoApiClient.Client
+  @default_client LagoClient.Client
 
   @doc """
   Update your organization
 
   This endpoint is used to update your own organization's settings.
   """
-  @spec update_organization(LagoApiClient.OrganizationUpdateInput.t(), keyword) ::
-          {:ok, LagoApiClient.Organization.t()} | {:error, LagoApiClient.Error.t()}
+  @spec update_organization(LagoClient.OrganizationUpdateInput.t(), keyword) ::
+          {:ok, LagoClient.Organization.t()} | {:error, LagoClient.Error.t()}
   def update_organization(body, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       args: [body: body],
-      call: {LagoApiClient.Organizations, :update_organization},
+      call: {LagoClient.Organizations, :update_organization},
       url: "/organizations",
       body: body,
       method: :put,
-      request: [{"application/json", {LagoApiClient.OrganizationUpdateInput, :t}}],
+      request: [{"application/json", {LagoClient.OrganizationUpdateInput, :t}}],
       response: [
-        {200, {LagoApiClient.Organization, :t}},
-        {400, {LagoApiClient.ApiErrorBadRequest, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {422, {LagoApiClient.ApiErrorUnprocessableEntity, :t}}
+        {200, {LagoClient.Organization, :t}},
+        {400, {LagoClient.ApiErrorBadRequest, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {422, {LagoClient.ApiErrorUnprocessableEntity, :t}}
       ],
       opts: opts
     })

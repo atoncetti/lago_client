@@ -1,10 +1,10 @@
-defmodule LagoApiClient.AddOn do
+defmodule LagoClient.AddOn do
   @moduledoc """
   Provides struct and type for a AddOn
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, add_on: LagoApiClient.AddOnObject.t()}
+  @type t :: %__MODULE__{__info__: map, add_on: LagoClient.AddOnObject.t()}
 
   defstruct [:__info__, :add_on]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.AddOn do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [add_on: {LagoApiClient.AddOnObject, :t}]
+    [add_on: {LagoClient.AddOnObject, :t}]
   end
 end

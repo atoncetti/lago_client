@@ -1,13 +1,13 @@
-defmodule LagoApiClient.PlansPaginated do
+defmodule LagoClient.PlansPaginated do
   @moduledoc """
   Provides struct and type for a PlansPaginated
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          meta: LagoApiClient.PaginationMeta.t(),
-          plans: [LagoApiClient.PlanObject.t()]
+          meta: LagoClient.PaginationMeta.t(),
+          plans: [LagoClient.PlanObject.t()]
         }
 
   defstruct [:__info__, :meta, :plans]
@@ -17,6 +17,6 @@ defmodule LagoApiClient.PlansPaginated do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [meta: {LagoApiClient.PaginationMeta, :t}, plans: [{LagoApiClient.PlanObject, :t}]]
+    [meta: {LagoClient.PaginationMeta, :t}, plans: [{LagoClient.PlanObject, :t}]]
   end
 end

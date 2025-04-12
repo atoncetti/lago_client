@@ -1,32 +1,32 @@
-defmodule LagoApiClient.AddOns do
+defmodule LagoClient.AddOns do
   @moduledoc """
   Provides API endpoints related to add ons
   """
 
-  @default_client LagoApiClient.Client
+  @default_client LagoClient.Client
 
   @doc """
   Create an add-on
 
   This endpoint is used to create an add-on that can be then attached to a one-off invoice.
   """
-  @spec create_add_on(LagoApiClient.AddOnCreateInput.t(), keyword) ::
-          {:ok, LagoApiClient.AddOn.t()} | {:error, LagoApiClient.Error.t()}
+  @spec create_add_on(LagoClient.AddOnCreateInput.t(), keyword) ::
+          {:ok, LagoClient.AddOn.t()} | {:error, LagoClient.Error.t()}
   def create_add_on(body, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       args: [body: body],
-      call: {LagoApiClient.AddOns, :create_add_on},
+      call: {LagoClient.AddOns, :create_add_on},
       url: "/add_ons",
       body: body,
       method: :post,
-      request: [{"application/json", {LagoApiClient.AddOnCreateInput, :t}}],
+      request: [{"application/json", {LagoClient.AddOnCreateInput, :t}}],
       response: [
-        {200, {LagoApiClient.AddOn, :t}},
-        {400, {LagoApiClient.ApiErrorBadRequest, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {422, {LagoApiClient.ApiErrorUnprocessableEntity, :t}}
+        {200, {LagoClient.AddOn, :t}},
+        {400, {LagoClient.ApiErrorBadRequest, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {422, {LagoClient.ApiErrorUnprocessableEntity, :t}}
       ],
       opts: opts
     })
@@ -38,19 +38,19 @@ defmodule LagoApiClient.AddOns do
   This endpoint is used to delete an existing add-on.
   """
   @spec destroy_add_on(String.t(), keyword) ::
-          {:ok, LagoApiClient.AddOn.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.AddOn.t()} | {:error, LagoClient.Error.t()}
   def destroy_add_on(code, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       args: [code: code],
-      call: {LagoApiClient.AddOns, :destroy_add_on},
+      call: {LagoClient.AddOns, :destroy_add_on},
       url: "/add_ons/#{code}",
       method: :delete,
       response: [
-        {200, {LagoApiClient.AddOn, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {404, {LagoApiClient.ApiErrorNotFound, :t}}
+        {200, {LagoClient.AddOn, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}}
       ],
       opts: opts
     })
@@ -62,19 +62,19 @@ defmodule LagoApiClient.AddOns do
   This endpoint is used to retrieve a specific add-on.
   """
   @spec find_add_on(String.t(), keyword) ::
-          {:ok, LagoApiClient.AddOn.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.AddOn.t()} | {:error, LagoClient.Error.t()}
   def find_add_on(code, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       args: [code: code],
-      call: {LagoApiClient.AddOns, :find_add_on},
+      call: {LagoClient.AddOns, :find_add_on},
       url: "/add_ons/#{code}",
       method: :get,
       response: [
-        {200, {LagoApiClient.AddOn, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {404, {LagoApiClient.ApiErrorNotFound, :t}}
+        {200, {LagoClient.AddOn, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}}
       ],
       opts: opts
     })
@@ -92,20 +92,20 @@ defmodule LagoApiClient.AddOns do
 
   """
   @spec find_all_add_ons(keyword) ::
-          {:ok, LagoApiClient.AddOnsPaginated.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.AddOnsPaginated.t()} | {:error, LagoClient.Error.t()}
   def find_all_add_ons(opts \\ []) do
     client = opts[:client] || @default_client
     query = Keyword.take(opts, [:page, :per_page])
 
     client.request(%{
       args: [],
-      call: {LagoApiClient.AddOns, :find_all_add_ons},
+      call: {LagoClient.AddOns, :find_all_add_ons},
       url: "/add_ons",
       method: :get,
       query: query,
       response: [
-        {200, {LagoApiClient.AddOnsPaginated, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}}
+        {200, {LagoClient.AddOnsPaginated, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}}
       ],
       opts: opts
     })
@@ -116,24 +116,24 @@ defmodule LagoApiClient.AddOns do
 
   This endpoint is used to update an existing add-on.
   """
-  @spec update_add_on(String.t(), LagoApiClient.AddOnUpdateInput.t(), keyword) ::
-          {:ok, LagoApiClient.AddOn.t()} | {:error, LagoApiClient.Error.t()}
+  @spec update_add_on(String.t(), LagoClient.AddOnUpdateInput.t(), keyword) ::
+          {:ok, LagoClient.AddOn.t()} | {:error, LagoClient.Error.t()}
   def update_add_on(code, body, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       args: [code: code, body: body],
-      call: {LagoApiClient.AddOns, :update_add_on},
+      call: {LagoClient.AddOns, :update_add_on},
       url: "/add_ons/#{code}",
       body: body,
       method: :put,
-      request: [{"application/json", {LagoApiClient.AddOnUpdateInput, :t}}],
+      request: [{"application/json", {LagoClient.AddOnUpdateInput, :t}}],
       response: [
-        {200, {LagoApiClient.AddOn, :t}},
-        {400, {LagoApiClient.ApiErrorBadRequest, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {404, {LagoApiClient.ApiErrorNotFound, :t}},
-        {422, {LagoApiClient.ApiErrorUnprocessableEntity, :t}}
+        {200, {LagoClient.AddOn, :t}},
+        {400, {LagoClient.ApiErrorBadRequest, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}},
+        {422, {LagoClient.ApiErrorUnprocessableEntity, :t}}
       ],
       opts: opts
     })

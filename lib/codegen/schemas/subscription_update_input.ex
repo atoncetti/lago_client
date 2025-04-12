@@ -1,13 +1,13 @@
-defmodule LagoApiClient.SubscriptionUpdateInput do
+defmodule LagoClient.SubscriptionUpdateInput do
   @moduledoc """
   Provides struct and type for a SubscriptionUpdateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           status: String.t() | nil,
-          subscription: LagoApiClient.SubscriptionUpdateInputSubscription.t()
+          subscription: LagoClient.SubscriptionUpdateInputSubscription.t()
         }
 
   defstruct [:__info__, :status, :subscription]
@@ -19,7 +19,7 @@ defmodule LagoApiClient.SubscriptionUpdateInput do
   def __fields__(:t) do
     [
       status: {:enum, ["active", "pending"]},
-      subscription: {LagoApiClient.SubscriptionUpdateInputSubscription, :t}
+      subscription: {LagoClient.SubscriptionUpdateInputSubscription, :t}
     ]
   end
 end

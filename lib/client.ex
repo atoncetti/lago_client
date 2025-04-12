@@ -1,8 +1,8 @@
-defmodule LagoApiClient.Client do
+defmodule LagoClient.Client do
   @moduledoc false
-  alias LagoApiClient.Error
-  alias LagoApiClient.Config
-  alias LagoApiClient.Operation
+  alias LagoClient.Error
+  alias LagoClient.Config
+  alias LagoClient.Operation
 
   @spec request(map) :: {:ok, term} | {:error, term} | Operation.t()
   def request(%{opts: opts} = info) do
@@ -20,7 +20,7 @@ defmodule LagoApiClient.Client do
       request_url: url
     }
 
-    :telemetry.span([:lago_api_client, :request], metadata, fn ->
+    :telemetry.span([:lago_client, :request], metadata, fn ->
       result = reduce_stack(operation)
 
       if Config.wrap(opts) do

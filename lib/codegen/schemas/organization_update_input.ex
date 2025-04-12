@@ -1,12 +1,12 @@
-defmodule LagoApiClient.OrganizationUpdateInput do
+defmodule LagoClient.OrganizationUpdateInput do
   @moduledoc """
   Provides struct and type for a OrganizationUpdateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          organization: LagoApiClient.OrganizationUpdateInputOrganization.t()
+          organization: LagoClient.OrganizationUpdateInputOrganization.t()
         }
 
   defstruct [:__info__, :organization]
@@ -16,6 +16,6 @@ defmodule LagoApiClient.OrganizationUpdateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [organization: {LagoApiClient.OrganizationUpdateInputOrganization, :t}]
+    [organization: {LagoClient.OrganizationUpdateInputOrganization, :t}]
   end
 end

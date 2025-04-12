@@ -1,8 +1,8 @@
-defmodule LagoApiClient.PaginationMeta do
+defmodule LagoClient.PaginationMeta do
   @moduledoc """
   Provides struct and type for a PaginationMeta
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -22,8 +22,8 @@ defmodule LagoApiClient.PaginationMeta do
   def __fields__(:t) do
     [
       current_page: :integer,
-      next_page: :integer,
-      prev_page: :integer,
+      next_page: {:union, [:integer, :null]},
+      prev_page: {:union, [:integer, :null]},
       total_count: :integer,
       total_pages: :integer
     ]

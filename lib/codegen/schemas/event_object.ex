@@ -1,8 +1,8 @@
-defmodule LagoApiClient.EventObject do
+defmodule LagoClient.EventObject do
   @moduledoc """
   Provides struct and type for a EventObject
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -12,7 +12,8 @@ defmodule LagoApiClient.EventObject do
           lago_customer_id: String.t() | nil,
           lago_id: String.t(),
           lago_subscription_id: String.t() | nil,
-          properties: LagoApiClient.EventObjectProperties.t() | nil,
+          precise_total_amount_cents: String.t() | nil,
+          properties: LagoClient.EventObjectProperties.t() | nil,
           timestamp: DateTime.t(),
           transaction_id: String.t()
         }
@@ -25,6 +26,7 @@ defmodule LagoApiClient.EventObject do
     :lago_customer_id,
     :lago_id,
     :lago_subscription_id,
+    :precise_total_amount_cents,
     :properties,
     :timestamp,
     :transaction_id
@@ -39,10 +41,11 @@ defmodule LagoApiClient.EventObject do
       code: {:string, :generic},
       created_at: {:string, :date_time},
       external_subscription_id: {:string, :generic},
-      lago_customer_id: {:string, :uuid},
+      lago_customer_id: {:union, [{:string, :uuid}, :null]},
       lago_id: {:string, :uuid},
-      lago_subscription_id: {:string, :uuid},
-      properties: {LagoApiClient.EventObjectProperties, :t},
+      lago_subscription_id: {:union, [{:string, :uuid}, :null]},
+      precise_total_amount_cents: {:union, [{:string, :generic}, :null]},
+      properties: {LagoClient.EventObjectProperties, :t},
       timestamp: {:string, :date_time},
       transaction_id: {:string, :generic}
     ]

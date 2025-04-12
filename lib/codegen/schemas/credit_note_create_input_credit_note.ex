@@ -1,15 +1,15 @@
-defmodule LagoApiClient.CreditNoteCreateInputCreditNote do
+defmodule LagoClient.CreditNoteCreateInputCreditNote do
   @moduledoc """
   Provides struct and type for a CreditNoteCreateInputCreditNote
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           credit_amount_cents: integer | nil,
           description: String.t() | nil,
           invoice_id: String.t(),
-          items: [LagoApiClient.CreditNoteCreateInputCreditNoteItems.t()],
+          items: [LagoClient.CreditNoteCreateInputCreditNoteItems.t()],
           reason: String.t() | nil,
           refund_amount_cents: integer | nil
         }
@@ -30,10 +30,10 @@ defmodule LagoApiClient.CreditNoteCreateInputCreditNote do
 
   def __fields__(:t) do
     [
-      credit_amount_cents: :integer,
+      credit_amount_cents: {:union, [:integer, :null]},
       description: {:string, :generic},
       invoice_id: {:string, :uuid},
-      items: [{LagoApiClient.CreditNoteCreateInputCreditNoteItems, :t}],
+      items: [{LagoClient.CreditNoteCreateInputCreditNoteItems, :t}],
       reason:
         {:enum,
          [
@@ -42,9 +42,10 @@ defmodule LagoApiClient.CreditNoteCreateInputCreditNote do
            "order_change",
            "order_cancellation",
            "fraudulent_charge",
-           "other"
+           "other",
+           nil
          ]},
-      refund_amount_cents: :integer
+      refund_amount_cents: {:union, [:integer, :null]}
     ]
   end
 end

@@ -1,33 +1,33 @@
-defmodule LagoApiClient.Subscriptions do
+defmodule LagoClient.Subscriptions do
   @moduledoc """
   Provides API endpoints related to subscriptions
   """
 
-  @default_client LagoApiClient.Client
+  @default_client LagoClient.Client
 
   @doc """
   Assign a plan to a customer
 
   This endpoint assigns a plan to a customer, creating or modifying a subscription. Ideal for initial subscriptions or plan changes (upgrades/downgrades).
   """
-  @spec create_subscription(LagoApiClient.SubscriptionCreateInput.t(), keyword) ::
-          {:ok, LagoApiClient.Subscription.t()} | {:error, LagoApiClient.Error.t()}
+  @spec create_subscription(LagoClient.SubscriptionCreateInput.t(), keyword) ::
+          {:ok, LagoClient.Subscription.t()} | {:error, LagoClient.Error.t()}
   def create_subscription(body, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       args: [body: body],
-      call: {LagoApiClient.Subscriptions, :create_subscription},
+      call: {LagoClient.Subscriptions, :create_subscription},
       url: "/subscriptions",
       body: body,
       method: :post,
-      request: [{"application/json", {LagoApiClient.SubscriptionCreateInput, :t}}],
+      request: [{"application/json", {LagoClient.SubscriptionCreateInput, :t}}],
       response: [
-        {200, {LagoApiClient.Subscription, :t}},
-        {400, {LagoApiClient.ApiErrorBadRequest, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {404, {LagoApiClient.ApiErrorNotFound, :t}},
-        {422, {LagoApiClient.ApiErrorUnprocessableEntity, :t}}
+        {200, {LagoClient.Subscription, :t}},
+        {400, {LagoClient.ApiErrorBadRequest, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}},
+        {422, {LagoClient.ApiErrorUnprocessableEntity, :t}}
       ],
       opts: opts
     })
@@ -44,22 +44,22 @@ defmodule LagoApiClient.Subscriptions do
 
   """
   @spec destroy_subscription(String.t(), keyword) ::
-          {:ok, LagoApiClient.Subscription.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.Subscription.t()} | {:error, LagoClient.Error.t()}
   def destroy_subscription(external_id, opts \\ []) do
     client = opts[:client] || @default_client
     query = Keyword.take(opts, [:status])
 
     client.request(%{
       args: [external_id: external_id],
-      call: {LagoApiClient.Subscriptions, :destroy_subscription},
+      call: {LagoClient.Subscriptions, :destroy_subscription},
       url: "/subscriptions/#{external_id}",
       method: :delete,
       query: query,
       response: [
-        {200, {LagoApiClient.Subscription, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {404, {LagoApiClient.ApiErrorNotFound, :t}},
-        {405, {LagoApiClient.ApiErrorNotAllowed, :t}}
+        {200, {LagoClient.Subscription, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}},
+        {405, {LagoClient.ApiErrorNotAllowed, :t}}
       ],
       opts: opts
     })
@@ -80,21 +80,21 @@ defmodule LagoApiClient.Subscriptions do
 
   """
   @spec find_all_subscriptions(keyword) ::
-          {:ok, LagoApiClient.SubscriptionsPaginated.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.SubscriptionsPaginated.t()} | {:error, LagoClient.Error.t()}
   def find_all_subscriptions(opts \\ []) do
     client = opts[:client] || @default_client
     query = Keyword.take(opts, [:external_customer_id, :page, :per_page, :plan_code, :"status[]"])
 
     client.request(%{
       args: [],
-      call: {LagoApiClient.Subscriptions, :find_all_subscriptions},
+      call: {LagoClient.Subscriptions, :find_all_subscriptions},
       url: "/subscriptions",
       method: :get,
       query: query,
       response: [
-        {200, {LagoApiClient.SubscriptionsPaginated, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {404, {LagoApiClient.ApiErrorNotFound, :t}}
+        {200, {LagoClient.SubscriptionsPaginated, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}}
       ],
       opts: opts
     })
@@ -106,19 +106,43 @@ defmodule LagoApiClient.Subscriptions do
   This endpoint retrieves a specific subscription.
   """
   @spec find_subscription(String.t(), keyword) ::
-          {:ok, LagoApiClient.Subscription.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.Subscription.t()} | {:error, LagoClient.Error.t()}
   def find_subscription(external_id, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       args: [external_id: external_id],
-      call: {LagoApiClient.Subscriptions, :find_subscription},
+      call: {LagoClient.Subscriptions, :find_subscription},
       url: "/subscriptions/#{external_id}",
       method: :get,
       response: [
-        {200, {LagoApiClient.Subscription, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {404, {LagoApiClient.ApiErrorNotFound, :t}}
+        {200, {LagoClient.Subscription, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}}
+      ],
+      opts: opts
+    })
+  end
+
+  @doc """
+  Retrive subscription lifetime usage
+
+  This endpoint enables the retrieval of the lifetime usage of a subscription.
+  """
+  @spec get_subscription_lifetime_usage(String.t(), keyword) ::
+          {:ok, LagoClient.LifetimeUsage.t()} | {:error, LagoClient.Error.t()}
+  def get_subscription_lifetime_usage(external_id, opts \\ []) do
+    client = opts[:client] || @default_client
+
+    client.request(%{
+      args: [external_id: external_id],
+      call: {LagoClient.Subscriptions, :get_subscription_lifetime_usage},
+      url: "/subscriptions/#{external_id}/lifetime_usage",
+      method: :get,
+      response: [
+        {200, {LagoClient.LifetimeUsage, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}}
       ],
       opts: opts
     })
@@ -129,24 +153,52 @@ defmodule LagoApiClient.Subscriptions do
 
   This endpoint allows you to update a subscription.
   """
-  @spec update_subscription(String.t(), LagoApiClient.SubscriptionUpdateInput.t(), keyword) ::
-          {:ok, LagoApiClient.Subscription.t()} | {:error, LagoApiClient.Error.t()}
+  @spec update_subscription(String.t(), LagoClient.SubscriptionUpdateInput.t(), keyword) ::
+          {:ok, LagoClient.Subscription.t()} | {:error, LagoClient.Error.t()}
   def update_subscription(external_id, body, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       args: [external_id: external_id, body: body],
-      call: {LagoApiClient.Subscriptions, :update_subscription},
+      call: {LagoClient.Subscriptions, :update_subscription},
       url: "/subscriptions/#{external_id}",
       body: body,
       method: :put,
-      request: [{"application/json", {LagoApiClient.SubscriptionUpdateInput, :t}}],
+      request: [{"application/json", {LagoClient.SubscriptionUpdateInput, :t}}],
       response: [
-        {200, {LagoApiClient.Subscription, :t}},
-        {400, {LagoApiClient.ApiErrorBadRequest, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}},
-        {404, {LagoApiClient.ApiErrorNotFound, :t}},
-        {422, {LagoApiClient.ApiErrorUnprocessableEntity, :t}}
+        {200, {LagoClient.Subscription, :t}},
+        {400, {LagoClient.ApiErrorBadRequest, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}},
+        {422, {LagoClient.ApiErrorUnprocessableEntity, :t}}
+      ],
+      opts: opts
+    })
+  end
+
+  @doc """
+  Update a subscription lifetime usage
+
+  This endpoint allows you to update the lifetime usage of a subscription.
+  """
+  @spec update_subscription_lifetime_usage(String.t(), LagoClient.LifetimeUsageInput.t(), keyword) ::
+          {:ok, LagoClient.LifetimeUsage.t()} | {:error, LagoClient.Error.t()}
+  def update_subscription_lifetime_usage(external_id, body, opts \\ []) do
+    client = opts[:client] || @default_client
+
+    client.request(%{
+      args: [external_id: external_id, body: body],
+      call: {LagoClient.Subscriptions, :update_subscription_lifetime_usage},
+      url: "/subscriptions/#{external_id}/lifetime_usage",
+      body: body,
+      method: :put,
+      request: [{"application/json", {LagoClient.LifetimeUsageInput, :t}}],
+      response: [
+        {200, {LagoClient.LifetimeUsage, :t}},
+        {400, {LagoClient.ApiErrorBadRequest, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}},
+        {404, {LagoClient.ApiErrorNotFound, :t}},
+        {422, {LagoClient.ApiErrorUnprocessableEntity, :t}}
       ],
       opts: opts
     })

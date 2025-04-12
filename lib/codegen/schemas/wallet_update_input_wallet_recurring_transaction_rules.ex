@@ -1,11 +1,12 @@
-defmodule LagoApiClient.WalletUpdateInputWalletRecurringTransactionRules do
+defmodule LagoClient.WalletUpdateInputWalletRecurringTransactionRules do
   @moduledoc """
   Provides struct and type for a WalletUpdateInputWalletRecurringTransactionRules
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
+          expiration_at: DateTime.t() | nil,
           granted_credits: String.t() | nil,
           interval: String.t() | nil,
           invoice_requires_successful_payment: boolean | nil,
@@ -16,15 +17,14 @@ defmodule LagoApiClient.WalletUpdateInputWalletRecurringTransactionRules do
           target_ongoing_balance: String.t() | nil,
           threshold_credits: String.t() | nil,
           transaction_metadata:
-            [
-              LagoApiClient.WalletUpdateInputWalletRecurringTransactionRulesTransactionMetadata.t()
-            ]
+            [LagoClient.WalletUpdateInputWalletRecurringTransactionRulesTransactionMetadata.t()]
             | nil,
           trigger: String.t() | nil
         }
 
   defstruct [
     :__info__,
+    :expiration_at,
     :granted_credits,
     :interval,
     :invoice_requires_successful_payment,
@@ -44,6 +44,7 @@ defmodule LagoApiClient.WalletUpdateInputWalletRecurringTransactionRules do
 
   def __fields__(:t) do
     [
+      expiration_at: {:string, :date_time},
       granted_credits: {:string, :generic},
       interval: {:enum, ["weekly", "monthly", "quarterly", "yearly"]},
       invoice_requires_successful_payment: :boolean,
@@ -54,7 +55,7 @@ defmodule LagoApiClient.WalletUpdateInputWalletRecurringTransactionRules do
       target_ongoing_balance: {:string, :generic},
       threshold_credits: {:string, :generic},
       transaction_metadata: [
-        {LagoApiClient.WalletUpdateInputWalletRecurringTransactionRulesTransactionMetadata, :t}
+        {LagoClient.WalletUpdateInputWalletRecurringTransactionRulesTransactionMetadata, :t}
       ],
       trigger: {:enum, ["interval", "threshold"]}
     ]

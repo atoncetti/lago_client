@@ -1,8 +1,8 @@
-defmodule LagoApiClient.BillableMetricFilterInput do
+defmodule LagoClient.BillableMetricFilterInput do
   @moduledoc """
   Provides struct and type for a BillableMetricFilterInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, key: String.t(), values: [String.t()]}
 

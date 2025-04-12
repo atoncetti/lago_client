@@ -1,8 +1,8 @@
-defmodule LagoApiClient.WalletObjectRecurringTransactionRules do
+defmodule LagoClient.WalletObjectRecurringTransactionRules do
   @moduledoc """
   Provides struct and type for a WalletObjectRecurringTransactionRules
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -17,7 +17,7 @@ defmodule LagoApiClient.WalletObjectRecurringTransactionRules do
           target_ongoing_balance: String.t(),
           threshold_credits: String.t(),
           transaction_metadata:
-            [LagoApiClient.WalletObjectRecurringTransactionRulesTransactionMetadata.t()] | nil,
+            [LagoClient.WalletObjectRecurringTransactionRulesTransactionMetadata.t()] | nil,
           trigger: String.t()
         }
 
@@ -54,7 +54,7 @@ defmodule LagoApiClient.WalletObjectRecurringTransactionRules do
       target_ongoing_balance: {:string, :generic},
       threshold_credits: {:string, :generic},
       transaction_metadata: [
-        {LagoApiClient.WalletObjectRecurringTransactionRulesTransactionMetadata, :t}
+        {LagoClient.WalletObjectRecurringTransactionRulesTransactionMetadata, :t}
       ],
       trigger: {:enum, ["interval", "threshold"]}
     ]

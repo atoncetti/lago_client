@@ -1,14 +1,14 @@
-defmodule LagoApiClient.ChargeFilterInput do
+defmodule LagoClient.ChargeFilterInput do
   @moduledoc """
   Provides struct and type for a ChargeFilterInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           invoice_display_name: String.t() | nil,
-          properties: LagoApiClient.ChargeFilterInputProperties.t() | nil,
-          values: LagoApiClient.ChargeFilterInputValues.t() | nil
+          properties: LagoClient.ChargeProperties.t() | nil,
+          values: LagoClient.ChargeFilterInputValues.t() | nil
         }
 
   defstruct [:__info__, :invoice_display_name, :properties, :values]
@@ -19,9 +19,9 @@ defmodule LagoApiClient.ChargeFilterInput do
 
   def __fields__(:t) do
     [
-      invoice_display_name: {:string, :generic},
-      properties: {LagoApiClient.ChargeFilterInputProperties, :t},
-      values: {LagoApiClient.ChargeFilterInputValues, :t}
+      invoice_display_name: {:union, [{:string, :generic}, :null]},
+      properties: {LagoClient.ChargeProperties, :t},
+      values: {LagoClient.ChargeFilterInputValues, :t}
     ]
   end
 end

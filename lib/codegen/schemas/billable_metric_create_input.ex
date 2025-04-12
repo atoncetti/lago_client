@@ -1,13 +1,10 @@
-defmodule LagoApiClient.BillableMetricCreateInput do
+defmodule LagoClient.BillableMetricCreateInput do
   @moduledoc """
   Provides struct and type for a BillableMetricCreateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{
-          __info__: map,
-          billable_metric: LagoApiClient.BillableMetricCreateInputBillableMetric.t()
-        }
+  @type t :: %__MODULE__{__info__: map, billable_metric: LagoClient.BillableMetricBaseInput.t()}
 
   defstruct [:__info__, :billable_metric]
 
@@ -16,6 +13,6 @@ defmodule LagoApiClient.BillableMetricCreateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [billable_metric: {LagoApiClient.BillableMetricCreateInputBillableMetric, :t}]
+    [billable_metric: {LagoClient.BillableMetricBaseInput, :t}]
   end
 end

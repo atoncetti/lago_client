@@ -1,13 +1,13 @@
-defmodule LagoApiClient.WebhookEndpointsPaginated do
+defmodule LagoClient.WebhookEndpointsPaginated do
   @moduledoc """
   Provides struct and type for a WebhookEndpointsPaginated
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          meta: LagoApiClient.PaginationMeta.t(),
-          webhook_endpoints: [LagoApiClient.WebhookEndpointObject.t()]
+          meta: LagoClient.PaginationMeta.t(),
+          webhook_endpoints: [LagoClient.WebhookEndpointObject.t()]
         }
 
   defstruct [:__info__, :meta, :webhook_endpoints]
@@ -18,8 +18,8 @@ defmodule LagoApiClient.WebhookEndpointsPaginated do
 
   def __fields__(:t) do
     [
-      meta: {LagoApiClient.PaginationMeta, :t},
-      webhook_endpoints: [{LagoApiClient.WebhookEndpointObject, :t}]
+      meta: {LagoClient.PaginationMeta, :t},
+      webhook_endpoints: [{LagoClient.WebhookEndpointObject, :t}]
     ]
   end
 end

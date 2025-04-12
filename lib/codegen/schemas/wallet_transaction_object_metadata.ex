@@ -1,8 +1,8 @@
-defmodule LagoApiClient.WalletTransactionObjectMetadata do
+defmodule LagoClient.WalletTransactionObjectMetadata do
   @moduledoc """
   Provides struct and type for a WalletTransactionObjectMetadata
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, key: String.t() | nil, value: String.t() | nil}
 

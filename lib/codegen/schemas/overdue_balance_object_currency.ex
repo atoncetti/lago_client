@@ -1,8 +1,8 @@
-defmodule LagoApiClient.OverdueBalanceObjectCurrency do
+defmodule LagoClient.OverdueBalanceObjectCurrency do
   @moduledoc """
   Provides struct and type for a OverdueBalanceObjectCurrency
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

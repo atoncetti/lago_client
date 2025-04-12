@@ -1,15 +1,14 @@
-defmodule LagoApiClient.WalletTransactionCreateInputWalletTransaction do
+defmodule LagoClient.WalletTransactionCreateInputWalletTransaction do
   @moduledoc """
   Provides struct and type for a WalletTransactionCreateInputWalletTransaction
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           granted_credits: String.t() | nil,
           invoice_requires_successful_payment: boolean | nil,
-          metadata:
-            [LagoApiClient.WalletTransactionCreateInputWalletTransactionMetadata.t()] | nil,
+          metadata: [LagoClient.WalletTransactionCreateInputWalletTransactionMetadata.t()] | nil,
           paid_credits: String.t() | nil,
           voided_credits: String.t() | nil,
           wallet_id: String.t()
@@ -33,7 +32,7 @@ defmodule LagoApiClient.WalletTransactionCreateInputWalletTransaction do
     [
       granted_credits: {:string, :generic},
       invoice_requires_successful_payment: :boolean,
-      metadata: [{LagoApiClient.WalletTransactionCreateInputWalletTransactionMetadata, :t}],
+      metadata: [{LagoClient.WalletTransactionCreateInputWalletTransactionMetadata, :t}],
       paid_credits: {:string, :generic},
       voided_credits: {:string, :generic},
       wallet_id: {:string, :uuid}

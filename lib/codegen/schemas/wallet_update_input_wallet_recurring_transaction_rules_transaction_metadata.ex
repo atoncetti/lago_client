@@ -1,8 +1,8 @@
-defmodule LagoApiClient.WalletUpdateInputWalletRecurringTransactionRulesTransactionMetadata do
+defmodule LagoClient.WalletUpdateInputWalletRecurringTransactionRulesTransactionMetadata do
   @moduledoc """
   Provides struct and type for a WalletUpdateInputWalletRecurringTransactionRulesTransactionMetadata
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, key: String.t() | nil, value: String.t() | nil}
 

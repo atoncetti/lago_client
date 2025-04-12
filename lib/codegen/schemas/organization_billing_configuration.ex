@@ -1,8 +1,8 @@
-defmodule LagoApiClient.OrganizationBillingConfiguration do
+defmodule LagoClient.OrganizationBillingConfiguration do
   @moduledoc """
   Provides struct and type for a OrganizationBillingConfiguration
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -20,7 +20,7 @@ defmodule LagoApiClient.OrganizationBillingConfiguration do
   def __fields__(:t) do
     [
       document_locale: {:string, :generic},
-      invoice_footer: {:string, :generic},
+      invoice_footer: {:union, [{:string, :generic}, :null]},
       invoice_grace_period: :integer
     ]
   end

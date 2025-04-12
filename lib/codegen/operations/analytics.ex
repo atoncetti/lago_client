@@ -1,9 +1,9 @@
-defmodule LagoApiClient.Analytics do
+defmodule LagoClient.Analytics do
   @moduledoc """
   Provides API endpoints related to analytics
   """
 
-  @default_client LagoApiClient.Client
+  @default_client LagoClient.Client
 
   @doc """
   List gross revenue
@@ -18,20 +18,20 @@ defmodule LagoApiClient.Analytics do
 
   """
   @spec find_all_gross_revenues(keyword) ::
-          {:ok, LagoApiClient.GrossRevenues.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.GrossRevenues.t()} | {:error, LagoClient.Error.t()}
   def find_all_gross_revenues(opts \\ []) do
     client = opts[:client] || @default_client
     query = Keyword.take(opts, [:currency, :external_customer_id, :months])
 
     client.request(%{
       args: [],
-      call: {LagoApiClient.Analytics, :find_all_gross_revenues},
+      call: {LagoClient.Analytics, :find_all_gross_revenues},
       url: "/analytics/gross_revenue",
       method: :get,
       query: query,
       response: [
-        {200, {LagoApiClient.GrossRevenues, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}}
+        {200, {LagoClient.GrossRevenues, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}}
       ],
       opts: opts
     })
@@ -49,20 +49,20 @@ defmodule LagoApiClient.Analytics do
 
   """
   @spec find_all_invoice_collections(keyword) ::
-          {:ok, LagoApiClient.InvoiceCollections.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.InvoiceCollections.t()} | {:error, LagoClient.Error.t()}
   def find_all_invoice_collections(opts \\ []) do
     client = opts[:client] || @default_client
     query = Keyword.take(opts, [:currency, :months])
 
     client.request(%{
       args: [],
-      call: {LagoApiClient.Analytics, :find_all_invoice_collections},
+      call: {LagoClient.Analytics, :find_all_invoice_collections},
       url: "/analytics/invoice_collection",
       method: :get,
       query: query,
       response: [
-        {200, {LagoApiClient.InvoiceCollections, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}}
+        {200, {LagoClient.InvoiceCollections, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}}
       ],
       opts: opts
     })
@@ -80,20 +80,20 @@ defmodule LagoApiClient.Analytics do
 
   """
   @spec find_all_invoiced_usages(keyword) ::
-          {:ok, LagoApiClient.InvoicedUsages.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.InvoicedUsages.t()} | {:error, LagoClient.Error.t()}
   def find_all_invoiced_usages(opts \\ []) do
     client = opts[:client] || @default_client
     query = Keyword.take(opts, [:currency, :months])
 
     client.request(%{
       args: [],
-      call: {LagoApiClient.Analytics, :find_all_invoiced_usages},
+      call: {LagoClient.Analytics, :find_all_invoiced_usages},
       url: "/analytics/invoiced_usage",
       method: :get,
       query: query,
       response: [
-        {200, {LagoApiClient.InvoicedUsages, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}}
+        {200, {LagoClient.InvoicedUsages, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}}
       ],
       opts: opts
     })
@@ -115,19 +115,18 @@ defmodule LagoApiClient.Analytics do
     * `months`: Show data only for given number of months.
 
   """
-  @spec find_all_mrrs(keyword) ::
-          {:ok, LagoApiClient.Mrrs.t()} | {:error, LagoApiClient.Error.t()}
+  @spec find_all_mrrs(keyword) :: {:ok, LagoClient.Mrrs.t()} | {:error, LagoClient.Error.t()}
   def find_all_mrrs(opts \\ []) do
     client = opts[:client] || @default_client
     query = Keyword.take(opts, [:currency, :months])
 
     client.request(%{
       args: [],
-      call: {LagoApiClient.Analytics, :find_all_mrrs},
+      call: {LagoClient.Analytics, :find_all_mrrs},
       url: "/analytics/mrr",
       method: :get,
       query: query,
-      response: [{200, {LagoApiClient.Mrrs, :t}}, {401, {LagoApiClient.ApiErrorUnauthorized, :t}}],
+      response: [{200, {LagoClient.Mrrs, :t}}, {401, {LagoClient.ApiErrorUnauthorized, :t}}],
       opts: opts
     })
   end
@@ -145,20 +144,20 @@ defmodule LagoApiClient.Analytics do
 
   """
   @spec find_all_overdue_balances(keyword) ::
-          {:ok, LagoApiClient.OverdueBalances.t()} | {:error, LagoApiClient.Error.t()}
+          {:ok, LagoClient.OverdueBalances.t()} | {:error, LagoClient.Error.t()}
   def find_all_overdue_balances(opts \\ []) do
     client = opts[:client] || @default_client
     query = Keyword.take(opts, [:currency, :external_customer_id, :months])
 
     client.request(%{
       args: [],
-      call: {LagoApiClient.Analytics, :find_all_overdue_balances},
+      call: {LagoClient.Analytics, :find_all_overdue_balances},
       url: "/analytics/overdue_balance",
       method: :get,
       query: query,
       response: [
-        {200, {LagoApiClient.OverdueBalances, :t}},
-        {401, {LagoApiClient.ApiErrorUnauthorized, :t}}
+        {200, {LagoClient.OverdueBalances, :t}},
+        {401, {LagoClient.ApiErrorUnauthorized, :t}}
       ],
       opts: opts
     })

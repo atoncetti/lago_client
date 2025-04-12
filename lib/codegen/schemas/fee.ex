@@ -1,10 +1,10 @@
-defmodule LagoApiClient.Fee do
+defmodule LagoClient.Fee do
   @moduledoc """
   Provides struct and type for a Fee
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, fee: LagoApiClient.FeeObject.t()}
+  @type t :: %__MODULE__{__info__: map, fee: LagoClient.FeeObject.t()}
 
   defstruct [:__info__, :fee]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.Fee do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [fee: {LagoApiClient.FeeObject, :t}]
+    [fee: {LagoClient.FeeObject, :t}]
   end
 end

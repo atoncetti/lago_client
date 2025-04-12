@@ -1,8 +1,8 @@
-defmodule LagoApiClient.ApiErrorNotFound do
+defmodule LagoClient.ApiErrorNotFound do
   @moduledoc """
   Provides struct and type for a ApiErrorNotFound
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, code: String.t(), error: String.t(), status: integer}
 

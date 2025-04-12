@@ -1,13 +1,13 @@
-defmodule LagoApiClient.CouponsPaginated do
+defmodule LagoClient.CouponsPaginated do
   @moduledoc """
   Provides struct and type for a CouponsPaginated
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          coupons: [LagoApiClient.CouponObject.t()],
-          meta: LagoApiClient.PaginationMeta.t()
+          coupons: [LagoClient.CouponObject.t()],
+          meta: LagoClient.PaginationMeta.t()
         }
 
   defstruct [:__info__, :coupons, :meta]
@@ -17,6 +17,6 @@ defmodule LagoApiClient.CouponsPaginated do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [coupons: [{LagoApiClient.CouponObject, :t}], meta: {LagoApiClient.PaginationMeta, :t}]
+    [coupons: [{LagoClient.CouponObject, :t}], meta: {LagoClient.PaginationMeta, :t}]
   end
 end

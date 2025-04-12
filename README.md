@@ -1,21 +1,21 @@
-# LagoApiClient
+# LagoClient
 
 **TODO: Add description**
 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `lago_api_client` to your list of dependencies in `mix.exs`:
+by adding `lago_client` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:lago_api_client, "~> 0.1.0"}
+    {:lago_client, "~> 0.1.0"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/lago_api_client>.
+## Regenerate
 
+- Copy all content of yaml from https://swagger.getlago.com/openapi.yaml to `priv/openapi.yaml`
+- run `mix api.gen default priv/openapi.yaml`

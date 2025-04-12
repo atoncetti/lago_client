@@ -1,8 +1,8 @@
-defmodule LagoApiClient.OrganizationUpdateInputOrganizationTimezone do
+defmodule LagoClient.OrganizationUpdateInputOrganizationTimezone do
   @moduledoc """
   Provides struct and type for a OrganizationUpdateInputOrganizationTimezone
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

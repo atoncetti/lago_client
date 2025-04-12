@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CustomerCreateInputCustomerTimezone do
+defmodule LagoClient.CustomerCreateInputCustomerTimezone do
   @moduledoc """
   Provides struct and type for a CustomerCreateInputCustomerTimezone
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

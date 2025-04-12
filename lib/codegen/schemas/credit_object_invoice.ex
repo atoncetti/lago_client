@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CreditObjectInvoice do
+defmodule LagoClient.CreditObjectInvoice do
   @moduledoc """
   Provides struct and type for a CreditObjectInvoice
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, lago_id: String.t(), payment_status: String.t()}
 

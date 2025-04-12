@@ -1,13 +1,13 @@
-defmodule LagoApiClient.BillableMetricsPaginated do
+defmodule LagoClient.BillableMetricsPaginated do
   @moduledoc """
   Provides struct and type for a BillableMetricsPaginated
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          billable_metrics: [LagoApiClient.BillableMetricObject.t()],
-          meta: LagoApiClient.PaginationMeta.t()
+          billable_metrics: [LagoClient.BillableMetricObject.t()],
+          meta: LagoClient.PaginationMeta.t()
         }
 
   defstruct [:__info__, :billable_metrics, :meta]
@@ -18,8 +18,8 @@ defmodule LagoApiClient.BillableMetricsPaginated do
 
   def __fields__(:t) do
     [
-      billable_metrics: [{LagoApiClient.BillableMetricObject, :t}],
-      meta: {LagoApiClient.PaginationMeta, :t}
+      billable_metrics: [{LagoClient.BillableMetricObject, :t}],
+      meta: {LagoClient.PaginationMeta, :t}
     ]
   end
 end

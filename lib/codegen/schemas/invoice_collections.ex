@@ -1,12 +1,12 @@
-defmodule LagoApiClient.InvoiceCollections do
+defmodule LagoClient.InvoiceCollections do
   @moduledoc """
   Provides struct and type for a InvoiceCollections
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          invoice_collections: [LagoApiClient.InvoiceCollectionObject.t()]
+          invoice_collections: [LagoClient.InvoiceCollectionObject.t()]
         }
 
   defstruct [:__info__, :invoice_collections]
@@ -16,6 +16,6 @@ defmodule LagoApiClient.InvoiceCollections do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [invoice_collections: [{LagoApiClient.InvoiceCollectionObject, :t}]]
+    [invoice_collections: [{LagoClient.InvoiceCollectionObject, :t}]]
   end
 end

@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CouponUpdateInputCoupon do
+defmodule LagoClient.CouponUpdateInputCoupon do
   @moduledoc """
   Provides struct and type for a CouponUpdateInputCoupon
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,

@@ -1,8 +1,8 @@
-defmodule LagoApiClient.InvoiceOneOffCreateInputInvoiceFees do
+defmodule LagoClient.InvoiceOneOffCreateInputInvoiceFees do
   @moduledoc """
   Provides struct and type for a InvoiceOneOffCreateInputInvoiceFees
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -31,11 +31,11 @@ defmodule LagoApiClient.InvoiceOneOffCreateInputInvoiceFees do
   def __fields__(:t) do
     [
       add_on_code: {:string, :generic},
-      description: {:string, :generic},
+      description: {:union, [{:string, :generic}, :null]},
       invoice_display_name: {:string, :generic},
       tax_codes: [string: :generic],
-      unit_amount_cents: :integer,
-      units: {:string, :generic}
+      unit_amount_cents: {:union, [:integer, :null]},
+      units: {:union, [{:string, :generic}, :null]}
     ]
   end
 end

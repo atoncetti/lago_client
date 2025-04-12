@@ -1,14 +1,16 @@
-defmodule LagoApiClient.SubscriptionObjectExtended do
+defmodule LagoClient.SubscriptionObjectExtended do
   @moduledoc """
   Provides struct and type for a SubscriptionObjectExtended
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           billing_time: String.t() | nil,
           canceled_at: DateTime.t() | nil,
           created_at: DateTime.t() | nil,
+          current_billing_period_ending_at: DateTime.t() | nil,
+          current_billing_period_started_at: DateTime.t() | nil,
           downgrade_plan_date: Date.t() | nil,
           ending_at: DateTime.t() | nil,
           external_customer_id: String.t() | nil,
@@ -17,7 +19,7 @@ defmodule LagoApiClient.SubscriptionObjectExtended do
           lago_id: String.t() | nil,
           name: String.t() | nil,
           next_plan_code: String.t() | nil,
-          plan: LagoApiClient.PlanObject.t() | nil,
+          plan: LagoClient.PlanObject.t() | nil,
           plan_code: String.t() | nil,
           previous_plan_code: String.t() | nil,
           started_at: DateTime.t() | nil,
@@ -32,6 +34,8 @@ defmodule LagoApiClient.SubscriptionObjectExtended do
     :billing_time,
     :canceled_at,
     :created_at,
+    :current_billing_period_ending_at,
+    :current_billing_period_started_at,
     :downgrade_plan_date,
     :ending_at,
     :external_customer_id,
@@ -57,24 +61,26 @@ defmodule LagoApiClient.SubscriptionObjectExtended do
   def __fields__(:t) do
     [
       billing_time: {:enum, ["calendar", "anniversary"]},
-      canceled_at: {:string, :date_time},
+      canceled_at: {:union, [{:string, :date_time}, :null]},
       created_at: {:string, :date_time},
-      downgrade_plan_date: {:string, :date},
-      ending_at: {:string, :date_time},
+      current_billing_period_ending_at: {:union, [{:string, :date_time}, :null]},
+      current_billing_period_started_at: {:union, [{:string, :date_time}, :null]},
+      downgrade_plan_date: {:union, [{:string, :date}, :null]},
+      ending_at: {:union, [{:string, :date_time}, :null]},
       external_customer_id: {:string, :generic},
       external_id: {:string, :generic},
       lago_customer_id: {:string, :uuid},
       lago_id: {:string, :uuid},
-      name: {:string, :generic},
-      next_plan_code: {:string, :generic},
-      plan: {LagoApiClient.PlanObject, :t},
+      name: {:union, [{:string, :generic}, :null]},
+      next_plan_code: {:union, [{:string, :generic}, :null]},
+      plan: {LagoClient.PlanObject, :t},
       plan_code: {:string, :generic},
-      previous_plan_code: {:string, :generic},
-      started_at: {:string, :date_time},
+      previous_plan_code: {:union, [{:string, :generic}, :null]},
+      started_at: {:union, [{:string, :date_time}, :null]},
       status: {:enum, ["active", "pending", "terminated", "canceled"]},
       subscription_at: {:string, :date_time},
-      terminated_at: {:string, :date_time},
-      trial_ended_at: {:string, :date_time}
+      terminated_at: {:union, [{:string, :date_time}, :null]},
+      trial_ended_at: {:union, [{:string, :date_time}, :null]}
     ]
   end
 end

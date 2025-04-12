@@ -1,13 +1,13 @@
-defmodule LagoApiClient.FeesPaginated do
+defmodule LagoClient.FeesPaginated do
   @moduledoc """
   Provides struct and type for a FeesPaginated
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          fees: [LagoApiClient.FeeObject.t()] | nil,
-          meta: LagoApiClient.PaginationMeta.t() | nil
+          fees: [LagoClient.FeeObject.t()] | nil,
+          meta: LagoClient.PaginationMeta.t() | nil
         }
 
   defstruct [:__info__, :fees, :meta]
@@ -17,6 +17,6 @@ defmodule LagoApiClient.FeesPaginated do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [fees: [{LagoApiClient.FeeObject, :t}], meta: {LagoApiClient.PaginationMeta, :t}]
+    [fees: [{LagoClient.FeeObject, :t}], meta: {LagoClient.PaginationMeta, :t}]
   end
 end

@@ -1,10 +1,10 @@
-defmodule LagoApiClient.WalletCreateInput do
+defmodule LagoClient.WalletCreateInput do
   @moduledoc """
   Provides struct and type for a WalletCreateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, wallet: LagoApiClient.WalletCreateInputWallet.t() | nil}
+  @type t :: %__MODULE__{__info__: map, wallet: LagoClient.WalletCreateInputWallet.t() | nil}
 
   defstruct [:__info__, :wallet]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.WalletCreateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [wallet: {LagoApiClient.WalletCreateInputWallet, :t}]
+    [wallet: {LagoClient.WalletCreateInputWallet, :t}]
   end
 end

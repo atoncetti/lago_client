@@ -1,8 +1,8 @@
-defmodule LagoApiClient.EventObjectProperties do
+defmodule LagoClient.EventObjectProperties do
   @moduledoc """
   Provides struct and type for a EventObjectProperties
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, operation_type: String.t() | nil}
 

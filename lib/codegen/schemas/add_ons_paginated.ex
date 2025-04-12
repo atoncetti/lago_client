@@ -1,13 +1,13 @@
-defmodule LagoApiClient.AddOnsPaginated do
+defmodule LagoClient.AddOnsPaginated do
   @moduledoc """
   Provides struct and type for a AddOnsPaginated
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          add_ons: [LagoApiClient.AddOnObject.t()],
-          meta: LagoApiClient.PaginationMeta.t()
+          add_ons: [LagoClient.AddOnObject.t()],
+          meta: LagoClient.PaginationMeta.t()
         }
 
   defstruct [:__info__, :add_ons, :meta]
@@ -17,6 +17,6 @@ defmodule LagoApiClient.AddOnsPaginated do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [add_ons: [{LagoApiClient.AddOnObject, :t}], meta: {LagoApiClient.PaginationMeta, :t}]
+    [add_ons: [{LagoClient.AddOnObject, :t}], meta: {LagoClient.PaginationMeta, :t}]
   end
 end

@@ -3,14 +3,14 @@ import Config
 config :oapi_generator,
   default: [
     output: [
-      base_module: LagoApiClient,
+      base_module: LagoClient,
       extra_fields: [__info__: :map],
       location: "lib/codegen",
       operation_subdirectory: "operations/",
       schema_subdirectory: "schemas/",
-      schema_use: LagoApiClient.Encoder,
+      schema_use: LagoClient.Encoder,
       types: [
-        error: {LagoApiClient.Error, :t}
+        error: {LagoClient.Error, :t}
       ]
     ]
   ]

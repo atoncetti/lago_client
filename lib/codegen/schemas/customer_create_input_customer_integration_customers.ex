@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CustomerCreateInputCustomerIntegrationCustomers do
+defmodule LagoClient.CustomerCreateInputCustomerIntegrationCustomers do
   @moduledoc """
   Provides struct and type for a CustomerCreateInputCustomerIntegrationCustomers
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -33,7 +33,7 @@ defmodule LagoApiClient.CustomerCreateInputCustomerIntegrationCustomers do
       external_customer_id: {:string, :generic},
       id: {:string, :uuid},
       integration_code: {:string, :generic},
-      integration_type: {:const, "netsuite"},
+      integration_type: {:enum, ["netsuite", "anrok", "xero"]},
       subsidiary_id: {:string, :generic},
       sync_with_provider: :boolean
     ]

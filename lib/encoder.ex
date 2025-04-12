@@ -1,4 +1,4 @@
-defmodule LagoApiClient.Encoder do
+defmodule LagoClient.Encoder do
   defmacro __using__(_opts) do
     quote do
       @derive {Jason.Encoder, except: [:__info__]}

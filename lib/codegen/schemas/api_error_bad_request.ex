@@ -1,8 +1,8 @@
-defmodule LagoApiClient.ApiErrorBadRequest do
+defmodule LagoClient.ApiErrorBadRequest do
   @moduledoc """
   Provides struct and type for a ApiErrorBadRequest
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, error: String.t(), status: integer}
 

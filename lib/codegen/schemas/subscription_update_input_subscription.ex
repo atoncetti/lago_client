@@ -1,14 +1,14 @@
-defmodule LagoApiClient.SubscriptionUpdateInputSubscription do
+defmodule LagoClient.SubscriptionUpdateInputSubscription do
   @moduledoc """
   Provides struct and type for a SubscriptionUpdateInputSubscription
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           ending_at: DateTime.t() | nil,
           name: String.t() | nil,
-          plan_overrides: LagoApiClient.PlanOverridesObject.t() | nil,
+          plan_overrides: LagoClient.PlanOverridesObject.t() | nil,
           subscription_at: DateTime.t() | nil
         }
 
@@ -20,9 +20,9 @@ defmodule LagoApiClient.SubscriptionUpdateInputSubscription do
 
   def __fields__(:t) do
     [
-      ending_at: {:string, :date_time},
-      name: {:string, :generic},
-      plan_overrides: {LagoApiClient.PlanOverridesObject, :t},
+      ending_at: {:union, [{:string, :date_time}, :null]},
+      name: {:union, [{:string, :generic}, :null]},
+      plan_overrides: {LagoClient.PlanOverridesObject, :t},
       subscription_at: {:string, :date_time}
     ]
   end

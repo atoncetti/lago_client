@@ -1,6 +1,6 @@
-defmodule LagoApiClient.Plugin.JasonSerializer do
-  alias LagoApiClient.Error
-  alias LagoApiClient.Operation
+defmodule LagoClient.Plugin.JasonSerializer do
+  alias LagoClient.Error
+  alias LagoClient.Operation
 
   @spec encode_body(Operation.t(), keyword) :: {:ok, Operation.t()} | {:error, Error.t()}
   def encode_body(%Operation{request_body: nil} = operation, _opts), do: {:ok, operation}

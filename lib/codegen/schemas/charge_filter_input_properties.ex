@@ -1,8 +1,8 @@
-defmodule LagoApiClient.ChargeFilterInputProperties do
+defmodule LagoClient.ChargeFilterInputProperties do
   @moduledoc """
   Provides struct and type for a ChargeFilterInputProperties
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,

@@ -1,10 +1,10 @@
-defmodule LagoApiClient.AddOnUpdateInput do
+defmodule LagoClient.AddOnUpdateInput do
   @moduledoc """
   Provides struct and type for a AddOnUpdateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, add_on: LagoApiClient.AddOnBaseInput.t()}
+  @type t :: %__MODULE__{__info__: map, add_on: LagoClient.AddOnBaseInput.t()}
 
   defstruct [:__info__, :add_on]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.AddOnUpdateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [add_on: {LagoApiClient.AddOnBaseInput, :t}]
+    [add_on: {LagoClient.AddOnBaseInput, :t}]
   end
 end

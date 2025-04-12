@@ -1,8 +1,8 @@
-defmodule LagoApiClient.SubscriptionCreateInputSubscription do
+defmodule LagoClient.SubscriptionCreateInputSubscription do
   @moduledoc """
   Provides struct and type for a SubscriptionCreateInputSubscription
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -12,7 +12,7 @@ defmodule LagoApiClient.SubscriptionCreateInputSubscription do
           external_id: String.t(),
           name: String.t() | nil,
           plan_code: String.t(),
-          plan_overrides: LagoApiClient.PlanOverridesObject.t() | nil,
+          plan_overrides: LagoClient.PlanOverridesObject.t() | nil,
           subscription_at: DateTime.t() | nil
         }
 
@@ -40,7 +40,7 @@ defmodule LagoApiClient.SubscriptionCreateInputSubscription do
       external_id: {:string, :generic},
       name: {:string, :generic},
       plan_code: {:string, :generic},
-      plan_overrides: {LagoApiClient.PlanOverridesObject, :t},
+      plan_overrides: {LagoClient.PlanOverridesObject, :t},
       subscription_at: {:string, :date_time}
     ]
   end

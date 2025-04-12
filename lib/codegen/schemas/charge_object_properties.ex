@@ -1,8 +1,8 @@
-defmodule LagoApiClient.ChargeObjectProperties do
+defmodule LagoClient.ChargeObjectProperties do
   @moduledoc """
   Provides struct and type for a ChargeObjectProperties
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,

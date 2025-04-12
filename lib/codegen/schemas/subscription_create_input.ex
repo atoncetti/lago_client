@@ -1,12 +1,12 @@
-defmodule LagoApiClient.SubscriptionCreateInput do
+defmodule LagoClient.SubscriptionCreateInput do
   @moduledoc """
   Provides struct and type for a SubscriptionCreateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          subscription: LagoApiClient.SubscriptionCreateInputSubscription.t()
+          subscription: LagoClient.SubscriptionCreateInputSubscription.t()
         }
 
   defstruct [:__info__, :subscription]
@@ -16,6 +16,6 @@ defmodule LagoApiClient.SubscriptionCreateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [subscription: {LagoApiClient.SubscriptionCreateInputSubscription, :t}]
+    [subscription: {LagoClient.SubscriptionCreateInputSubscription, :t}]
   end
 end

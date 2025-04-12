@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CouponObjectAmountCurrency do
+defmodule LagoClient.CouponObjectAmountCurrency do
   @moduledoc """
   Provides struct and type for a CouponObjectAmountCurrency
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

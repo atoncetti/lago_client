@@ -1,10 +1,10 @@
-defmodule LagoApiClient.Coupon do
+defmodule LagoClient.Coupon do
   @moduledoc """
   Provides struct and type for a Coupon
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, coupon: LagoApiClient.CouponObject.t()}
+  @type t :: %__MODULE__{__info__: map, coupon: LagoClient.CouponObject.t()}
 
   defstruct [:__info__, :coupon]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.Coupon do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [coupon: {LagoApiClient.CouponObject, :t}]
+    [coupon: {LagoClient.CouponObject, :t}]
   end
 end

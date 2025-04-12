@@ -1,25 +1,25 @@
-defmodule LagoApiClient.ChargeObject do
+defmodule LagoClient.ChargeObject do
   @moduledoc """
   Provides struct and type for a ChargeObject
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           billable_metric_code: String.t(),
           charge_model: String.t(),
           created_at: DateTime.t(),
-          filters: [LagoApiClient.ChargeFilterObject.t()] | nil,
+          filters: [LagoClient.ChargeFilterObject.t()] | nil,
           invoice_display_name: String.t() | nil,
           invoiceable: boolean | nil,
           lago_billable_metric_id: String.t(),
           lago_id: String.t(),
           min_amount_cents: integer | nil,
           pay_in_advance: boolean | nil,
-          properties: LagoApiClient.ChargeObjectProperties.t() | nil,
+          properties: LagoClient.ChargeProperties.t() | nil,
           prorated: boolean | nil,
           regroup_paid_fees: String.t() | nil,
-          taxes: [LagoApiClient.TaxObject.t()] | nil
+          taxes: [LagoClient.TaxObject.t()] | nil
         }
 
   defstruct [
@@ -49,19 +49,27 @@ defmodule LagoApiClient.ChargeObject do
       billable_metric_code: {:string, :generic},
       charge_model:
         {:enum,
-         ["standard", "graduated", "graduated_percentage", "package", "percentage", "volume"]},
+         [
+           "standard",
+           "graduated",
+           "graduated_percentage",
+           "package",
+           "percentage",
+           "volume",
+           "dynamic"
+         ]},
       created_at: {:string, :date_time},
-      filters: [{LagoApiClient.ChargeFilterObject, :t}],
+      filters: [{LagoClient.ChargeFilterObject, :t}],
       invoice_display_name: {:string, :generic},
       invoiceable: :boolean,
       lago_billable_metric_id: {:string, :uuid},
       lago_id: {:string, :uuid},
       min_amount_cents: :integer,
       pay_in_advance: :boolean,
-      properties: {LagoApiClient.ChargeObjectProperties, :t},
+      properties: {LagoClient.ChargeProperties, :t},
       prorated: :boolean,
       regroup_paid_fees: {:enum, [nil, "invoice"]},
-      taxes: [{LagoApiClient.TaxObject, :t}]
+      taxes: [{LagoClient.TaxObject, :t}]
     ]
   end
 end

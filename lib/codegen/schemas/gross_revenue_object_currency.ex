@@ -1,8 +1,8 @@
-defmodule LagoApiClient.GrossRevenueObjectCurrency do
+defmodule LagoClient.GrossRevenueObjectCurrency do
   @moduledoc """
   Provides struct and type for a GrossRevenueObjectCurrency
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

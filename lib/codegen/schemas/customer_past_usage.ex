@@ -1,13 +1,13 @@
-defmodule LagoApiClient.CustomerPastUsage do
+defmodule LagoClient.CustomerPastUsage do
   @moduledoc """
   Provides struct and type for a CustomerPastUsage
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          meta: LagoApiClient.PaginationMeta.t(),
-          usage_periods: [LagoApiClient.CustomerUsage.t()]
+          meta: LagoClient.PaginationMeta.t(),
+          usage_periods: [LagoClient.CustomerUsage.t()]
         }
 
   defstruct [:__info__, :meta, :usage_periods]
@@ -17,6 +17,6 @@ defmodule LagoApiClient.CustomerPastUsage do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [meta: {LagoApiClient.PaginationMeta, :t}, usage_periods: [{LagoApiClient.CustomerUsage, :t}]]
+    [meta: {LagoClient.PaginationMeta, :t}, usage_periods: [{LagoClient.CustomerUsage, :t}]]
   end
 end

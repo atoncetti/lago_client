@@ -1,13 +1,13 @@
-defmodule LagoApiClient.SubscriptionsPaginated do
+defmodule LagoClient.SubscriptionsPaginated do
   @moduledoc """
   Provides struct and type for a SubscriptionsPaginated
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          meta: LagoApiClient.PaginationMeta.t(),
-          subscriptions: [LagoApiClient.SubscriptionObject.t()]
+          meta: LagoClient.PaginationMeta.t(),
+          subscriptions: [LagoClient.SubscriptionObject.t()]
         }
 
   defstruct [:__info__, :meta, :subscriptions]
@@ -17,9 +17,6 @@ defmodule LagoApiClient.SubscriptionsPaginated do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [
-      meta: {LagoApiClient.PaginationMeta, :t},
-      subscriptions: [{LagoApiClient.SubscriptionObject, :t}]
-    ]
+    [meta: {LagoClient.PaginationMeta, :t}, subscriptions: [{LagoClient.SubscriptionObject, :t}]]
   end
 end

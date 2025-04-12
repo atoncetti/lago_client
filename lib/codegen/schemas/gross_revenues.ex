@@ -1,10 +1,10 @@
-defmodule LagoApiClient.GrossRevenues do
+defmodule LagoClient.GrossRevenues do
   @moduledoc """
   Provides struct and type for a GrossRevenues
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, gross_revenues: [LagoApiClient.GrossRevenueObject.t()]}
+  @type t :: %__MODULE__{__info__: map, gross_revenues: [LagoClient.GrossRevenueObject.t()]}
 
   defstruct [:__info__, :gross_revenues]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.GrossRevenues do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [gross_revenues: [{LagoApiClient.GrossRevenueObject, :t}]]
+    [gross_revenues: [{LagoClient.GrossRevenueObject, :t}]]
   end
 end

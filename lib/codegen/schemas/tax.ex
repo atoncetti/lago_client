@@ -1,10 +1,10 @@
-defmodule LagoApiClient.Tax do
+defmodule LagoClient.Tax do
   @moduledoc """
   Provides struct and type for a Tax
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, tax: LagoApiClient.TaxObject.t()}
+  @type t :: %__MODULE__{__info__: map, tax: LagoClient.TaxObject.t()}
 
   defstruct [:__info__, :tax]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.Tax do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [tax: {LagoApiClient.TaxObject, :t}]
+    [tax: {LagoClient.TaxObject, :t}]
   end
 end

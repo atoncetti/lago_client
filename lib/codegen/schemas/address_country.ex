@@ -1,8 +1,8 @@
-defmodule LagoApiClient.AddressCountry do
+defmodule LagoClient.AddressCountry do
   @moduledoc """
   Provides struct and type for a AddressCountry
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

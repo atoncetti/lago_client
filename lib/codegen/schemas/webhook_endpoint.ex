@@ -1,10 +1,10 @@
-defmodule LagoApiClient.WebhookEndpoint do
+defmodule LagoClient.WebhookEndpoint do
   @moduledoc """
   Provides struct and type for a WebhookEndpoint
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, webhook_endpoint: LagoApiClient.WebhookEndpointObject.t()}
+  @type t :: %__MODULE__{__info__: map, webhook_endpoint: LagoClient.WebhookEndpointObject.t()}
 
   defstruct [:__info__, :webhook_endpoint]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.WebhookEndpoint do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [webhook_endpoint: {LagoApiClient.WebhookEndpointObject, :t}]
+    [webhook_endpoint: {LagoClient.WebhookEndpointObject, :t}]
   end
 end

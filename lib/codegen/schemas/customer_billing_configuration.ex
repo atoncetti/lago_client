@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CustomerBillingConfiguration do
+defmodule LagoClient.CustomerBillingConfiguration do
   @moduledoc """
   Provides struct and type for a CustomerBillingConfiguration
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -39,7 +39,7 @@ defmodule LagoApiClient.CustomerBillingConfiguration do
       payment_provider: {:enum, ["stripe", "adyen", "gocardless"]},
       payment_provider_code: {:string, :generic},
       provider_customer_id: {:string, :generic},
-      provider_payment_methods: [string: :generic],
+      provider_payment_methods: {:union, [[string: :generic], :null]},
       sync: :boolean,
       sync_with_provider: :boolean
     ]

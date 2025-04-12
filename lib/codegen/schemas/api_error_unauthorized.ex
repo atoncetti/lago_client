@@ -1,8 +1,8 @@
-defmodule LagoApiClient.ApiErrorUnauthorized do
+defmodule LagoClient.ApiErrorUnauthorized do
   @moduledoc """
   Provides struct and type for a ApiErrorUnauthorized
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, error: String.t(), status: integer}
 

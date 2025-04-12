@@ -1,8 +1,8 @@
-defmodule LagoApiClient.OrganizationUpdateInputOrganizationDefaultCurrency do
+defmodule LagoClient.OrganizationUpdateInputOrganizationDefaultCurrency do
   @moduledoc """
   Provides struct and type for a OrganizationUpdateInputOrganizationDefaultCurrency
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

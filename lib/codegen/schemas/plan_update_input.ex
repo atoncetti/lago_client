@@ -1,10 +1,10 @@
-defmodule LagoApiClient.PlanUpdateInput do
+defmodule LagoClient.PlanUpdateInput do
   @moduledoc """
   Provides struct and type for a PlanUpdateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, plan: LagoApiClient.PlanUpdateInputPlan.t()}
+  @type t :: %__MODULE__{__info__: map, plan: LagoClient.PlanUpdateInputPlan.t()}
 
   defstruct [:__info__, :plan]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.PlanUpdateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [plan: {LagoApiClient.PlanUpdateInputPlan, :t}]
+    [plan: {LagoClient.PlanUpdateInputPlan, :t}]
   end
 end

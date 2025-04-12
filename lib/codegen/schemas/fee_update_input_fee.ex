@@ -1,8 +1,8 @@
-defmodule LagoApiClient.FeeUpdateInputFee do
+defmodule LagoClient.FeeUpdateInputFee do
   @moduledoc """
   Provides struct and type for a FeeUpdateInputFee
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, payment_status: String.t()}
 

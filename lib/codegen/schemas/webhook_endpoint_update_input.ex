@@ -1,12 +1,12 @@
-defmodule LagoApiClient.WebhookEndpointUpdateInput do
+defmodule LagoClient.WebhookEndpointUpdateInput do
   @moduledoc """
   Provides struct and type for a WebhookEndpointUpdateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          webhook_endpoint: LagoApiClient.WebhookEndpointUpdateInputWebhookEndpoint.t() | nil
+          webhook_endpoint: LagoClient.WebhookEndpointUpdateInputWebhookEndpoint.t() | nil
         }
 
   defstruct [:__info__, :webhook_endpoint]
@@ -16,6 +16,6 @@ defmodule LagoApiClient.WebhookEndpointUpdateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [webhook_endpoint: {LagoApiClient.WebhookEndpointUpdateInputWebhookEndpoint, :t}]
+    [webhook_endpoint: {LagoClient.WebhookEndpointUpdateInputWebhookEndpoint, :t}]
   end
 end

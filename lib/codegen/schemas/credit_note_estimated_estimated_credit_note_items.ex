@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CreditNoteEstimatedEstimatedCreditNoteItems do
+defmodule LagoClient.CreditNoteEstimatedEstimatedCreditNoteItems do
   @moduledoc """
   Provides struct and type for a CreditNoteEstimatedEstimatedCreditNoteItems
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, amount_cents: integer, lago_fee_id: String.t() | nil}
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.CreditNoteEstimatedEstimatedCreditNoteItems do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [amount_cents: :integer, lago_fee_id: {:string, :uuid}]
+    [amount_cents: :integer, lago_fee_id: {:union, [{:string, :uuid}, :null]}]
   end
 end

@@ -1,10 +1,10 @@
-defmodule LagoApiClient.EventInput do
+defmodule LagoClient.EventInput do
   @moduledoc """
   Provides struct and type for a EventInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, event: map}
+  @type t :: %__MODULE__{__info__: map, event: LagoClient.EventInputObject.t()}
 
   defstruct [:__info__, :event]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.EventInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [event: :map]
+    [event: {LagoClient.EventInputObject, :t}]
   end
 end

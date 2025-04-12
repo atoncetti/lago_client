@@ -1,8 +1,8 @@
-defmodule LagoApiClient.WalletUpdateInputWallet do
+defmodule LagoClient.WalletUpdateInputWallet do
   @moduledoc """
   Provides struct and type for a WalletUpdateInputWallet
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -10,7 +10,7 @@ defmodule LagoApiClient.WalletUpdateInputWallet do
           invoice_requires_successful_payment: boolean | nil,
           name: String.t() | nil,
           recurring_transaction_rules:
-            [LagoApiClient.WalletUpdateInputWalletRecurringTransactionRules.t()] | nil
+            [LagoClient.WalletUpdateInputWalletRecurringTransactionRules.t()] | nil
         }
 
   defstruct [
@@ -27,11 +27,11 @@ defmodule LagoApiClient.WalletUpdateInputWallet do
 
   def __fields__(:t) do
     [
-      expiration_at: {:string, :date_time},
+      expiration_at: {:union, [{:string, :date_time}, :null]},
       invoice_requires_successful_payment: :boolean,
-      name: {:string, :generic},
+      name: {:union, [{:string, :generic}, :null]},
       recurring_transaction_rules: [
-        {LagoApiClient.WalletUpdateInputWalletRecurringTransactionRules, :t}
+        {LagoClient.WalletUpdateInputWalletRecurringTransactionRules, :t}
       ]
     ]
   end

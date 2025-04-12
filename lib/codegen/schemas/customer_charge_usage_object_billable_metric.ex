@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CustomerChargeUsageObjectBillableMetric do
+defmodule LagoClient.CustomerChargeUsageObjectBillableMetric do
   @moduledoc """
   Provides struct and type for a CustomerChargeUsageObjectBillableMetric
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,

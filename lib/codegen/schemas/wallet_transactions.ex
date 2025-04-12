@@ -1,12 +1,12 @@
-defmodule LagoApiClient.WalletTransactions do
+defmodule LagoClient.WalletTransactions do
   @moduledoc """
   Provides struct and type for a WalletTransactions
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          wallet_transactions: [LagoApiClient.WalletTransactionObject.t()]
+          wallet_transactions: [LagoClient.WalletTransactionObject.t()]
         }
 
   defstruct [:__info__, :wallet_transactions]
@@ -16,6 +16,6 @@ defmodule LagoApiClient.WalletTransactions do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [wallet_transactions: [{LagoApiClient.WalletTransactionObject, :t}]]
+    [wallet_transactions: [{LagoClient.WalletTransactionObject, :t}]]
   end
 end

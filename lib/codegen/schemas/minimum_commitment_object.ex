@@ -1,8 +1,8 @@
-defmodule LagoApiClient.MinimumCommitmentObject do
+defmodule LagoClient.MinimumCommitmentObject do
   @moduledoc """
   Provides struct and type for a MinimumCommitmentObject
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -12,7 +12,7 @@ defmodule LagoApiClient.MinimumCommitmentObject do
           invoice_display_name: String.t() | nil,
           lago_id: String.t(),
           plan_code: String.t() | nil,
-          taxes: [LagoApiClient.TaxObject.t()] | nil,
+          taxes: [LagoClient.TaxObject.t()] | nil,
           updated_at: DateTime.t() | nil
         }
 
@@ -40,7 +40,7 @@ defmodule LagoApiClient.MinimumCommitmentObject do
       invoice_display_name: {:string, :generic},
       lago_id: {:string, :uuid},
       plan_code: {:string, :generic},
-      taxes: [{LagoApiClient.TaxObject, :t}],
+      taxes: [{LagoClient.TaxObject, :t}],
       updated_at: {:string, :date_time}
     ]
   end

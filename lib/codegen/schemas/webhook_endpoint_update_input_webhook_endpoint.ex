@@ -1,8 +1,8 @@
-defmodule LagoApiClient.WebhookEndpointUpdateInputWebhookEndpoint do
+defmodule LagoClient.WebhookEndpointUpdateInputWebhookEndpoint do
   @moduledoc """
   Provides struct and type for a WebhookEndpointUpdateInputWebhookEndpoint
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, signature_algo: String.t() | nil, webhook_url: String.t()}
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.WebhookEndpointUpdateInputWebhookEndpoint do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [signature_algo: {:enum, ["jwt", "hmac"]}, webhook_url: {:string, :generic}]
+    [signature_algo: {:enum, ["jwt", "hmac", nil]}, webhook_url: {:string, :generic}]
   end
 end

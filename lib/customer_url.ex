@@ -1,19 +1,19 @@
-defmodule LagoApiClient.CustomerUrl do
+defmodule LagoClient.CustomerUrl do
   @moduledoc """
   Provides struct and type for a CustomerUrl
 
   @doc false
   @spec __fields__(atom) :: keyword
   def __fields__(:generate_customer_checkout_url_200_json_resp) do
-    [customer: {LagoApiClient.CustomerUrl, :t}]
+    [customer: {LagoClient.CustomerUrl, :t}]
   end
 
   def __fields__(:get_customer_portal_url_200_json_resp) do
-    [customer: {LagoApiClient.CustomerUrl, :t}]
+    [customer: {LagoClient.CustomerUrl, :t}]
   end
   """
 
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,

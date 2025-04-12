@@ -1,18 +1,21 @@
-defmodule LagoApiClient.BillableMetricBaseInput do
+defmodule LagoClient.BillableMetricBaseInput do
   @moduledoc """
   Provides struct and type for a BillableMetricBaseInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           aggregation_type: String.t() | nil,
           code: String.t() | nil,
           description: String.t() | nil,
+          expression: String.t() | nil,
           field_name: String.t() | nil,
-          filters: [LagoApiClient.BillableMetricFilterInput.t()] | nil,
+          filters: [LagoClient.BillableMetricFilterInput.t()] | nil,
           name: String.t() | nil,
           recurring: boolean | nil,
+          rounding_function: String.t() | nil,
+          rounding_precision: integer | nil,
           weighted_interval: String.t() | nil
         }
 
@@ -21,10 +24,13 @@ defmodule LagoApiClient.BillableMetricBaseInput do
     :aggregation_type,
     :code,
     :description,
+    :expression,
     :field_name,
     :filters,
     :name,
     :recurring,
+    :rounding_function,
+    :rounding_precision,
     :weighted_interval
   ]
 
@@ -38,12 +44,15 @@ defmodule LagoApiClient.BillableMetricBaseInput do
         {:enum,
          ["count_agg", "sum_agg", "max_agg", "unique_count_agg", "weighted_sum_agg", "latest_agg"]},
       code: {:string, :generic},
-      description: {:string, :generic},
-      field_name: {:string, :generic},
-      filters: [{LagoApiClient.BillableMetricFilterInput, :t}],
+      description: {:union, [{:string, :generic}, :null]},
+      expression: {:union, [{:string, :generic}, :null]},
+      field_name: {:union, [{:string, :generic}, :null]},
+      filters: [{LagoClient.BillableMetricFilterInput, :t}],
       name: {:string, :generic},
       recurring: :boolean,
-      weighted_interval: {:const, "seconds"}
+      rounding_function: {:enum, ["ceil", "floor", "round", nil]},
+      rounding_precision: {:union, [:integer, :null]},
+      weighted_interval: {:enum, ["seconds", nil]}
     ]
   end
 end

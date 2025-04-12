@@ -1,10 +1,10 @@
-defmodule LagoApiClient.Mrrs do
+defmodule LagoClient.Mrrs do
   @moduledoc """
   Provides struct and type for a Mrrs
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, mrrs: [LagoApiClient.MrrObject.t()]}
+  @type t :: %__MODULE__{__info__: map, mrrs: [LagoClient.MrrObject.t()]}
 
   defstruct [:__info__, :mrrs]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.Mrrs do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [mrrs: [{LagoApiClient.MrrObject, :t}]]
+    [mrrs: [{LagoClient.MrrObject, :t}]]
   end
 end

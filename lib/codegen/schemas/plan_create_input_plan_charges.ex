@@ -1,19 +1,19 @@
-defmodule LagoApiClient.PlanCreateInputPlanCharges do
+defmodule LagoClient.PlanCreateInputPlanCharges do
   @moduledoc """
   Provides struct and type for a PlanCreateInputPlanCharges
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           billable_metric_id: String.t() | nil,
           charge_model: String.t() | nil,
-          filters: [LagoApiClient.ChargeFilterInput.t()] | nil,
+          filters: [LagoClient.ChargeFilterInput.t()] | nil,
           invoice_display_name: String.t() | nil,
           invoiceable: boolean | nil,
           min_amount_cents: integer | nil,
           pay_in_advance: boolean | nil,
-          properties: LagoApiClient.PlanCreateInputPlanChargesProperties.t() | nil,
+          properties: LagoClient.ChargeProperties.t() | nil,
           prorated: boolean | nil,
           regroup_paid_fees: String.t() | nil,
           tax_codes: [String.t()] | nil
@@ -43,13 +43,21 @@ defmodule LagoApiClient.PlanCreateInputPlanCharges do
       billable_metric_id: {:string, :uuid},
       charge_model:
         {:enum,
-         ["standard", "graduated", "graduated_percentage", "package", "percentage", "volume"]},
-      filters: [{LagoApiClient.ChargeFilterInput, :t}],
+         [
+           "standard",
+           "graduated",
+           "graduated_percentage",
+           "package",
+           "percentage",
+           "volume",
+           "dynamic"
+         ]},
+      filters: [{LagoClient.ChargeFilterInput, :t}],
       invoice_display_name: {:string, :generic},
       invoiceable: :boolean,
       min_amount_cents: :integer,
       pay_in_advance: :boolean,
-      properties: {LagoApiClient.PlanCreateInputPlanChargesProperties, :t},
+      properties: {LagoClient.ChargeProperties, :t},
       prorated: :boolean,
       regroup_paid_fees: {:enum, [nil, "invoice"]},
       tax_codes: [string: :generic]

@@ -1,8 +1,8 @@
-defmodule LagoApiClient.AddOnObjectAmountCurrency do
+defmodule LagoClient.AddOnObjectAmountCurrency do
   @moduledoc """
   Provides struct and type for a AddOnObjectAmountCurrency
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

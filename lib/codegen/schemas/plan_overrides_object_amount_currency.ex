@@ -1,8 +1,8 @@
-defmodule LagoApiClient.PlanOverridesObjectAmountCurrency do
+defmodule LagoClient.PlanOverridesObjectAmountCurrency do
   @moduledoc """
   Provides struct and type for a PlanOverridesObjectAmountCurrency
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

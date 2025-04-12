@@ -1,12 +1,12 @@
-defmodule LagoApiClient.InvoiceUpdateInputInvoice do
+defmodule LagoClient.InvoiceUpdateInputInvoice do
   @moduledoc """
   Provides struct and type for a InvoiceUpdateInputInvoice
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          metadata: [LagoApiClient.InvoiceUpdateInputInvoiceMetadata.t()] | nil,
+          metadata: [LagoClient.InvoiceUpdateInputInvoiceMetadata.t()] | nil,
           payment_status: String.t() | nil
         }
 
@@ -18,7 +18,7 @@ defmodule LagoApiClient.InvoiceUpdateInputInvoice do
 
   def __fields__(:t) do
     [
-      metadata: [{LagoApiClient.InvoiceUpdateInputInvoiceMetadata, :t}],
+      metadata: [{LagoClient.InvoiceUpdateInputInvoiceMetadata, :t}],
       payment_status: {:enum, ["pending", "succeeded", "failed"]}
     ]
   end

@@ -1,13 +1,10 @@
-defmodule LagoApiClient.InvoiceOneOffCreateInput do
+defmodule LagoClient.InvoiceOneOffCreateInput do
   @moduledoc """
   Provides struct and type for a InvoiceOneOffCreateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{
-          __info__: map,
-          invoice: LagoApiClient.InvoiceOneOffCreateInputInvoice.t()
-        }
+  @type t :: %__MODULE__{__info__: map, invoice: LagoClient.InvoiceOneOffCreateInputInvoice.t()}
 
   defstruct [:__info__, :invoice]
 
@@ -16,6 +13,6 @@ defmodule LagoApiClient.InvoiceOneOffCreateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [invoice: {LagoApiClient.InvoiceOneOffCreateInputInvoice, :t}]
+    [invoice: {LagoClient.InvoiceOneOffCreateInputInvoice, :t}]
   end
 end

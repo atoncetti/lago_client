@@ -1,11 +1,11 @@
-defmodule LagoApiClient.Operation do
+defmodule LagoClient.Operation do
   @moduledoc """
   Defines a struct that tracks client requests
 
   > #### Note {:.info}
   >
   > This module is unlikely to be used directly by applications. Instead, functions in this module
-  > are useful for plugins. See `LagoApiClient.Plugin` for more information.
+  > are useful for plugins. See `LagoClient.Plugin` for more information.
 
   ## Fields
 
@@ -47,7 +47,7 @@ defmodule LagoApiClient.Operation do
 
   """
 
-  alias LagoApiClient.Config
+  alias LagoClient.Config
 
   @type auth :: nil | (token :: String.t()) | {username :: String.t(), password :: String.t()}
   @type header :: {String.t(), String.t()}
@@ -264,7 +264,7 @@ defmodule LagoApiClient.Operation do
 
   @spec put_version_header(t, String.t()) :: t
   defp put_version_header(operation, version) do
-    put_request_header(operation, "X-LagoApiClient-Api-Version", version)
+    put_request_header(operation, "X-LagoClient-Api-Version", version)
   end
 
   @spec put_user_agent(t) :: t
@@ -272,8 +272,8 @@ defmodule LagoApiClient.Operation do
     user_agent =
       IO.iodata_to_binary([
         "#{Config.app_name()}" || "Unknown App",
-        " via lago_api_client ",
-        "#{Application.spec(:lago_api_client, :vsn)}",
+        " via lago_client ",
+        "#{Application.spec(:lago_client, :vsn)}",
         "; Elixir ",
         "#{System.version()}",
         " / OTP ",

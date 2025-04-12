@@ -1,8 +1,8 @@
-defmodule LagoApiClient.BillableMetricCreateInputBillableMetric do
+defmodule LagoClient.BillableMetricCreateInputBillableMetric do
   @moduledoc """
   Provides struct and type for a BillableMetricCreateInputBillableMetric
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -10,7 +10,7 @@ defmodule LagoApiClient.BillableMetricCreateInputBillableMetric do
           code: String.t() | nil,
           description: String.t() | nil,
           field_name: String.t() | nil,
-          filters: [LagoApiClient.BillableMetricFilterInput.t()] | nil,
+          filters: [LagoClient.BillableMetricFilterInput.t()] | nil,
           name: String.t() | nil,
           recurring: boolean | nil,
           weighted_interval: String.t() | nil
@@ -40,7 +40,7 @@ defmodule LagoApiClient.BillableMetricCreateInputBillableMetric do
       code: {:string, :generic},
       description: {:string, :generic},
       field_name: {:string, :generic},
-      filters: [{LagoApiClient.BillableMetricFilterInput, :t}],
+      filters: [{LagoClient.BillableMetricFilterInput, :t}],
       name: {:string, :generic},
       recurring: :boolean,
       weighted_interval: {:const, "seconds"}

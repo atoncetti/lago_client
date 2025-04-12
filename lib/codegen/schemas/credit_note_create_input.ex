@@ -1,12 +1,12 @@
-defmodule LagoApiClient.CreditNoteCreateInput do
+defmodule LagoClient.CreditNoteCreateInput do
   @moduledoc """
   Provides struct and type for a CreditNoteCreateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          credit_note: LagoApiClient.CreditNoteCreateInputCreditNote.t()
+          credit_note: LagoClient.CreditNoteCreateInputCreditNote.t()
         }
 
   defstruct [:__info__, :credit_note]
@@ -16,6 +16,6 @@ defmodule LagoApiClient.CreditNoteCreateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [credit_note: {LagoApiClient.CreditNoteCreateInputCreditNote, :t}]
+    [credit_note: {LagoClient.CreditNoteCreateInputCreditNote, :t}]
   end
 end

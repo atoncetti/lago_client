@@ -1,8 +1,8 @@
-defmodule LagoApiClient.InvoiceMetadataObject do
+defmodule LagoClient.InvoiceMetadataObject do
   @moduledoc """
   Provides struct and type for a InvoiceMetadataObject
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,

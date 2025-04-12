@@ -1,10 +1,10 @@
-defmodule LagoApiClient.CustomerCreateInput do
+defmodule LagoClient.CustomerCreateInput do
   @moduledoc """
   Provides struct and type for a CustomerCreateInput
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, customer: LagoApiClient.CustomerCreateInputCustomer.t()}
+  @type t :: %__MODULE__{__info__: map, customer: LagoClient.CustomerCreateInputCustomer.t()}
 
   defstruct [:__info__, :customer]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.CustomerCreateInput do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [customer: {LagoApiClient.CustomerCreateInputCustomer, :t}]
+    [customer: {LagoClient.CustomerCreateInputCustomer, :t}]
   end
 end

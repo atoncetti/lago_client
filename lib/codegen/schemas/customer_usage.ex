@@ -1,10 +1,10 @@
-defmodule LagoApiClient.CustomerUsage do
+defmodule LagoClient.CustomerUsage do
   @moduledoc """
   Provides struct and type for a CustomerUsage
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{__info__: map, customer_usage: LagoApiClient.CustomerUsageObject.t()}
+  @type t :: %__MODULE__{__info__: map, customer_usage: LagoClient.CustomerUsageObject.t()}
 
   defstruct [:__info__, :customer_usage]
 
@@ -13,6 +13,6 @@ defmodule LagoApiClient.CustomerUsage do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [customer_usage: {LagoApiClient.CustomerUsageObject, :t}]
+    [customer_usage: {LagoClient.CustomerUsageObject, :t}]
   end
 end

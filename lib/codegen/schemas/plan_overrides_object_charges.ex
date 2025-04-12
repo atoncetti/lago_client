@@ -1,17 +1,17 @@
-defmodule LagoApiClient.PlanOverridesObjectCharges do
+defmodule LagoClient.PlanOverridesObjectCharges do
   @moduledoc """
   Provides struct and type for a PlanOverridesObjectCharges
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           billable_metric_id: String.t() | nil,
-          filters: [LagoApiClient.ChargeFilterInput.t()] | nil,
+          filters: [LagoClient.ChargeFilterInput.t()] | nil,
           id: String.t() | nil,
           invoice_display_name: String.t() | nil,
           min_amount_cents: integer | nil,
-          properties: LagoApiClient.PlanOverridesObjectChargesProperties.t() | nil,
+          properties: LagoClient.ChargeProperties.t() | nil,
           tax_codes: [String.t()] | nil
         }
 
@@ -33,11 +33,11 @@ defmodule LagoApiClient.PlanOverridesObjectCharges do
   def __fields__(:t) do
     [
       billable_metric_id: {:string, :uuid},
-      filters: [{LagoApiClient.ChargeFilterInput, :t}],
+      filters: [{LagoClient.ChargeFilterInput, :t}],
       id: {:string, :uuid},
       invoice_display_name: {:string, :generic},
       min_amount_cents: :integer,
-      properties: {LagoApiClient.PlanOverridesObjectChargesProperties, :t},
+      properties: {LagoClient.ChargeProperties, :t},
       tax_codes: [string: :generic]
     ]
   end

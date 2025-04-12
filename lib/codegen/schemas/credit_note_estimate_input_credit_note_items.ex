@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CreditNoteEstimateInputCreditNoteItems do
+defmodule LagoClient.CreditNoteEstimateInputCreditNoteItems do
   @moduledoc """
   Provides struct and type for a CreditNoteEstimateInputCreditNoteItems
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map, amount_cents: integer, fee_id: String.t()}
 

@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CustomerCreateInputCustomerCountry do
+defmodule LagoClient.CustomerCreateInputCustomerCountry do
   @moduledoc """
   Provides struct and type for a CustomerCreateInputCustomerCountry
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{__info__: map}
 

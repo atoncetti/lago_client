@@ -1,15 +1,15 @@
-defmodule LagoApiClient.CreditNoteItemObjectFee do
+defmodule LagoClient.CreditNoteItemObjectFee do
   @moduledoc """
   Provides struct and type for a CreditNoteItemObjectFee
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
           amount_cents: integer | nil,
           amount_currency: map | nil,
           amount_details: map | nil,
-          applied_taxes: [LagoApiClient.FeeAppliedTaxObject.t()] | nil,
+          applied_taxes: [LagoClient.FeeAppliedTaxObject.t()] | nil,
           created_at: DateTime.t() | nil,
           event_transaction_id: String.t() | nil,
           events_count: integer | nil,
@@ -85,7 +85,7 @@ defmodule LagoApiClient.CreditNoteItemObjectFee do
       amount_cents: :integer,
       amount_currency: :map,
       amount_details: :map,
-      applied_taxes: [{LagoApiClient.FeeAppliedTaxObject, :t}],
+      applied_taxes: [{LagoClient.FeeAppliedTaxObject, :t}],
       created_at: {:string, :date_time},
       event_transaction_id: {:string, :generic},
       events_count: :integer,

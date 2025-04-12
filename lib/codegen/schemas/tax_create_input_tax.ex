@@ -1,8 +1,8 @@
-defmodule LagoApiClient.TaxCreateInputTax do
+defmodule LagoClient.TaxCreateInputTax do
   @moduledoc """
   Provides struct and type for a TaxCreateInputTax
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,

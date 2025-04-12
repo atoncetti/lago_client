@@ -1,8 +1,8 @@
-defmodule LagoApiClient.CreditObjectItem do
+defmodule LagoClient.CreditObjectItem do
   @moduledoc """
   Provides struct and type for a CreditObjectItem
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
@@ -23,7 +23,7 @@ defmodule LagoApiClient.CreditObjectItem do
       code: {:string, :generic},
       lago_item_id: {:string, :uuid},
       name: {:string, :generic},
-      type: {:enum, ["coupon", "credit_note"]}
+      type: {:enum, ["coupon", "credit_note", "invoice"]}
     ]
   end
 end

@@ -1,13 +1,13 @@
-defmodule LagoApiClient.WalletTransactionsPaginated do
+defmodule LagoClient.WalletTransactionsPaginated do
   @moduledoc """
   Provides struct and type for a WalletTransactionsPaginated
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,
-          meta: LagoApiClient.PaginationMeta.t() | nil,
-          wallet_transactions: [LagoApiClient.WalletTransactionObject.t()] | nil
+          meta: LagoClient.PaginationMeta.t() | nil,
+          wallet_transactions: [LagoClient.WalletTransactionObject.t()] | nil
         }
 
   defstruct [:__info__, :meta, :wallet_transactions]
@@ -18,8 +18,8 @@ defmodule LagoApiClient.WalletTransactionsPaginated do
 
   def __fields__(:t) do
     [
-      meta: {LagoApiClient.PaginationMeta, :t},
-      wallet_transactions: [{LagoApiClient.WalletTransactionObject, :t}]
+      meta: {LagoClient.PaginationMeta, :t},
+      wallet_transactions: [{LagoClient.WalletTransactionObject, :t}]
     ]
   end
 end

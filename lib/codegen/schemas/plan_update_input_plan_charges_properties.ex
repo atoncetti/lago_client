@@ -1,8 +1,8 @@
-defmodule LagoApiClient.PlanUpdateInputPlanChargesProperties do
+defmodule LagoClient.PlanUpdateInputPlanChargesProperties do
   @moduledoc """
   Provides struct and type for a PlanUpdateInputPlanChargesProperties
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
   @type t :: %__MODULE__{
           __info__: map,

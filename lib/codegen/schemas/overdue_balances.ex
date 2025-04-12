@@ -1,13 +1,10 @@
-defmodule LagoApiClient.OverdueBalances do
+defmodule LagoClient.OverdueBalances do
   @moduledoc """
   Provides struct and type for a OverdueBalances
   """
-  use LagoApiClient.Encoder
+  use LagoClient.Encoder
 
-  @type t :: %__MODULE__{
-          __info__: map,
-          overdue_balances: [LagoApiClient.OverdueBalanceObject.t()]
-        }
+  @type t :: %__MODULE__{__info__: map, overdue_balances: [LagoClient.OverdueBalanceObject.t()]}
 
   defstruct [:__info__, :overdue_balances]
 
@@ -16,6 +13,6 @@ defmodule LagoApiClient.OverdueBalances do
   def __fields__(type \\ :t)
 
   def __fields__(:t) do
-    [overdue_balances: [{LagoApiClient.OverdueBalanceObject, :t}]]
+    [overdue_balances: [{LagoClient.OverdueBalanceObject, :t}]]
   end
 end
