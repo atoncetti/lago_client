@@ -8,6 +8,7 @@ defmodule LagoClient.Customer do
 
   defstruct [:__info__, :customer]
 
+  @spec __fields__() :: [{:customer, {LagoClient.CustomerObjectExtended, :t}}, ...]
   @doc false
   @spec __fields__(atom) :: keyword
   def __fields__(type \\ :t)

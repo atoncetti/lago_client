@@ -67,7 +67,6 @@ defmodule LagoClient.CustomerObjectExtended do
     :legal_name,
     :legal_number,
     :logo_url,
-    :metadata,
     :name,
     :net_payment_term,
     :phone,
