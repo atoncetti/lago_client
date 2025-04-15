@@ -55,3 +55,7 @@ alias LagoClient.SubscriptionCreateInputSubscription
   }
 })
 ```
+
+## Issues
+
+- `CustomerObjectExtended` is of type allOf and is not properly build, manually add all fields from `CustomerObject`
